@@ -1,0 +1,89 @@
+/*2 columns ratior 3-1 */
+.callout[data-callout="cols"][data-callout-metadata~="31"] > .callout-content {
+	display: grid;
+    grid-template-columns: 3fr 1.2fr;
+    gap: 0 !important;
+}
+
+
+/** ============ callout [!cols] ============ **/
+.callout[data-callout="cols"] {
+    background-color: transparent;
+	--callout-icon: lucide-scroll !important;
+}
+
+
+.callout[data-callout="cols"] .callout-title {
+	background-color: rgba(var(--callout-color), 0.01) !important;	
+}
+
+.callout[data-callout="cols"].is-collapsible.is-collapsed .callout-title  {
+	clear: both !important;
+	background-color: transparent !important;
+	border-left: none !important;
+}
+
+@media (max-width: 400pt) {
+	.callout[data-callout="cols"].is-collapsible.is-collapsed .callout-title  {
+	width: 100% !important;
+}}
+
+.callout[data-callout="cols"] .callout-icon { display: none !important;}
+
+.callout[data-callout="cols"] .callout-title-inner { 
+	font-weight: 300 !important;
+	flex: auto !important;
+}
+
+.callout[data-callout="cols"] blockquote { border: none; }
+
+/*** 2 columns that each take up the same amount of available free space ***/
+.callout[data-callout="cols"] > .callout-content {
+	display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(1em, 1fr) );
+    gap: 0 !important;
+}
+
+
+
+@media (max-width: 400pt) {
+	.callout[data-callout="cols"] > .callout-content {
+       grid-template-columns: 1fr !important;}
+}
+	   
+
+.callout[data-callout="cols"] .callout[data-callout="notecol"] .callout-content .dataview.table-view-table > tbody > tr > td iframe{
+	width: 100% !important;
+	height: auto !important;
+	background-color: transparent !important;
+}
+
+/* [!cols] > [!note] nested callout */
+.callout[data-callout="cols"] .callout[data-callout="note"] .callout-title-inner {
+	display: initial !important; }
+
+
+.callout[data-callout="cols"] .callout[data-callout="note"] .callout-content h2 {
+	margin: 0 !important;
+}
+
+
+/* [!cols] > [!notecol] > [!note] when title collapsed */
+.callout[data-callout="cols"] .callout[data-callout="notecol"] .callout[data-callout="note"].is-collapsible.is-collapsed .callout-title {
+	width: 100% !important;
+	display: flex !important;
+	border-left: none !important;
+}
+
+/* [!cols] > [!notecol] > [!note] when title un-collapsed */
+.callout[data-callout="cols"] .callout[data-callout="notecol"] .callout[data-callout="note"] .callout-title {
+	display: initial !important;
+	width: 100% !important;
+	display: flex !important;
+}
+
+/* [!cols] > [!notecol] > [!note] content when title collapsed */
+.callout[data-callout="cols"] .callout[data-callout="notecol"] .callout[data-callout="note"] .callout-content {
+	border: .5px dashed rgba(var(--callout-color), 0.2) !important;
+}
+
